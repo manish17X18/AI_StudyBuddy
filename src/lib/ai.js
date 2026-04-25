@@ -1,14 +1,12 @@
 import axios from 'axios';
 
-// ==========================================
-// 1. FLASHCARD GENERATOR
-// ==========================================
+
 export const generateStudyMaterial = async (notesText) => {
   const apiKey = import.meta.env.VITE_AI_API_KEY;
   if (!apiKey) throw new Error("Missing VITE_AI_API_KEY in .env.local file.");
 
   const prompt = `
-    You are a technical study assistant. Read the following notes and generate 5 highly relevant flashcards.
+    You are a technical study assistant. Read the following notes and generate 12 highly relevant flashcards.
     You MUST return the output STRICTLY as a raw JSON array of objects. 
     Do NOT wrap the response in markdown blocks (e.g., no \`\`\`json).
     Each object must have exactly two keys: "front" (the question) and "back" (the answer).
@@ -31,9 +29,7 @@ export const generateStudyMaterial = async (notesText) => {
   }
 };
 
-// ==========================================
-// 2. SMART NOTES GENERATOR
-// ==========================================
+
 export const generateShortNotes = async (text) => {
   const apiKey = import.meta.env.VITE_AI_API_KEY;
   
@@ -59,9 +55,7 @@ export const generateShortNotes = async (text) => {
   }
 };
 
-// ==========================================
-// 3. QUIZ GENERATOR
-// ==========================================
+
 export const generateQuiz = async (text) => {
   const apiKey = import.meta.env.VITE_AI_API_KEY;
   
